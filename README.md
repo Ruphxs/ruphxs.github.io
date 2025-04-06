@@ -109,10 +109,6 @@ Colby Niedzielski
 
 ## 🤝 Contact
 
-Feel free to reach out for collaborations or questions:
-- Email: [Your Email]
-- LinkedIn: [Your LinkedIn]
-- GitHub: [Your GitHub]
 
 ---
 
