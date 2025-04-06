@@ -1,80 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Matrix rain effect
-  const canvas = document.getElementById('matrix');
-  const ctx = canvas.getContext('2d');
-
-  // Set canvas size to window size
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  // Matrix characters
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
-  const charArray = chars.split('');
-  const fontSize = 14;
-  const matrixColumns = canvas.width / fontSize;
-  const drops = [];
-
-  // Initialize drops with random positions
-  for (let i = 0; i < matrixColumns; i++) {
-    drops[i] = Math.random() * -100;
-  }
-
-  // Theme-specific matrix colors
-  const themeColors = {
-    default: ['#00ff00'],
-    matrix: ['#00ff00', '#00cc00', '#009900', '#00ff33', '#33ff00'],
-    cyberpunk: ['#ff00ff', '#00ffff', '#ff3366', '#3366ff', '#ff69b4', '#00ffcc'],
-    sunset: ['#ff6b6b', '#ffd93d', '#ff9999', '#ffac81', '#ff5e78'],
-    ocean: ['#189AB4', '#75E6DA', '#D4F1F4', '#05445E', '#00B4D8']
-  };
-
-  // Theme-specific drop speeds
-  const themeSpeeds = {
-    default: 1,
-    matrix: 1.5,
-    cyberpunk: 0.8,
-    sunset: 1.2,
-    ocean: 0.9
-  };
-
-  let currentThemeColors = themeColors.default;
-  let currentSpeed = themeSpeeds.default;
-
-  // Draw matrix rain
-  function drawMatrix() {
-    // Clear with slight fade effect
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = charArray[Math.floor(Math.random() * charArray.length)];
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
-
-      // Use current theme colors with glow effect
-      const color = currentThemeColors[Math.floor(Math.random() * currentThemeColors.length)];
-      ctx.shadowBlur = 15;
-      ctx.shadowColor = color;
-      ctx.fillStyle = color;
-      ctx.fillText(text, x, y);
-      ctx.shadowBlur = 0;
-
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-      drops[i] += currentSpeed;
-    }
-  }
-
-  // Start matrix effect immediately
-  setInterval(drawMatrix, 33);
-
+  // Matrix effect is now handled by matrix.js
+  
   // Contact Form Handling
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
@@ -153,13 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (theme !== activeTheme) {
         document.body.classList.add(`theme-${theme}`);
         activeTheme = theme;
-        currentThemeColors = themeColors[theme] || themeColors.default;
-        currentSpeed = themeSpeeds[theme] || themeSpeeds.default;
+        
+        // Dispatch theme change event for matrix.js
+        document.dispatchEvent(new CustomEvent('themeChange', { 
+          detail: { theme: theme } 
+        }));
       } else {
         // If clicking the same theme, remove it
         activeTheme = null;
-        currentThemeColors = themeColors.default;
-        currentSpeed = themeSpeeds.default;
+        
+        // Dispatch theme change event with null theme to reset
+        document.dispatchEvent(new CustomEvent('themeChange', { 
+          detail: { theme: null } 
+        }));
       }
 
       // Close menu after selection
@@ -195,6 +127,127 @@ document.addEventListener('DOMContentLoaded', () => {
       const icon = mobileNavToggle.querySelector('i');
       icon.classList.add('fa-bars');
       icon.classList.remove('fa-times');
+    });
+  });
+
+  // Fix for quick action buttons on mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    const quickActionButtons = document.querySelectorAll('.quick-action-btn');
+    
+    quickActionButtons.forEach(button => {
+      // Prevent default on touch start to avoid issues
+      button.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        
+        // Get the onclick attribute value
+        const onclickAttr = this.getAttribute('onclick');
+        
+        // If it's a direct link (no onclick), follow the href
+        if (!onclickAttr) {
+          const href = this.getAttribute('href');
+          if (href && href !== '#') {
+            if (this.getAttribute('target') === '_blank') {
+              window.open(href, '_blank');
+            } else {
+              window.location.href = href;
+            }
+          }
+        } else {
+          // If it has an onclick handler, execute it
+          const handler = new Function(onclickAttr.replace('return false;', ''));
+          handler.call(this);
+        }
+      }, {passive: false});
+      
+      // Add active state on touch
+      button.addEventListener('touchstart', function() {
+        this.classList.add('active');
+      });
+      
+      button.addEventListener('touchend', function() {
+        this.classList.remove('active');
+      });
+      
+      button.addEventListener('touchcancel', function() {
+        this.classList.remove('active');
+      });
+    });
+  });
+
+  // Skill progress bar animation
+  function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-bar');
+    
+    skillBars.forEach(bar => {
+      const width = bar.getAttribute('data-width');
+      setTimeout(() => {
+        bar.style.width = width;
+        bar.classList.add('animate');
+      }, 300);
+    });
+  }
+
+  // Intersection Observer for skill bars
+  const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSkillBars();
+        skillsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Observe skills container
+  const skillProgressBars = document.querySelector('.skill-progress-bars');
+  if (skillProgressBars) {
+    skillsObserver.observe(skillProgressBars);
+  }
+
+  // Language Switcher
+  const languageBtns = document.querySelectorAll('.language-btn');
+  let currentLang = 'en';
+
+  // Language translations
+  const translations = {
+    'en': {
+      'Skills': 'Skills',
+      'Skill Levels': 'Skill Levels',
+      // Add more translations as needed
+    },
+    'fr': {
+      'Skills': 'Compétences',
+      'Skill Levels': 'Niveaux de Compétence',
+      // Add more translations as needed
+    }
+  };
+
+  // Switch language function
+  function switchLanguage(lang) {
+    if (lang === currentLang) return;
+    
+    currentLang = lang;
+    
+    // Update active button
+    languageBtns.forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+    
+    // Update all elements with data-en and data-fr attributes
+    const elements = document.querySelectorAll('[data-' + lang + ']');
+    elements.forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+  }
+
+  // Add event listeners to language buttons
+  languageBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      switchLanguage(lang);
     });
   });
 }); 

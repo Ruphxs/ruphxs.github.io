@@ -122,6 +122,37 @@ nav {
 .matrix-column:nth-child(18) { left: 85%; animation-delay: 17s; }
 .matrix-column:nth-child(19) { left: 90%; animation-delay: 18s; }
 .matrix-column:nth-child(20) { left: 95%; animation-delay: 19s; }
+.matrix-column:nth-child(21) { left: 100%; animation-delay: 20s; }
+.matrix-column:nth-child(22) { left: 5%; animation-delay: 21s; }
+.matrix-column:nth-child(23) { left: 15%; animation-delay: 22s; }
+.matrix-column:nth-child(24) { left: 25%; animation-delay: 23s; }
+.matrix-column:nth-child(25) { left: 35%; animation-delay: 24s; }
+.matrix-column:nth-child(26) { left: 45%; animation-delay: 25s; }
+.matrix-column:nth-child(27) { left: 55%; animation-delay: 26s; }
+.matrix-column:nth-child(28) { left: 65%; animation-delay: 27s; }
+.matrix-column:nth-child(29) { left: 75%; animation-delay: 28s; }
+.matrix-column:nth-child(30) { left: 85%; animation-delay: 29s; }
+.matrix-column:nth-child(31) { left: 95%; animation-delay: 30s; }
+.matrix-column:nth-child(32) { left: 2.5%; animation-delay: 31s; }
+.matrix-column:nth-child(33) { left: 7.5%; animation-delay: 32s; }
+.matrix-column:nth-child(34) { left: 12.5%; animation-delay: 33s; }
+.matrix-column:nth-child(35) { left: 17.5%; animation-delay: 34s; }
+.matrix-column:nth-child(36) { left: 22.5%; animation-delay: 35s; }
+.matrix-column:nth-child(37) { left: 27.5%; animation-delay: 36s; }
+.matrix-column:nth-child(38) { left: 32.5%; animation-delay: 37s; }
+.matrix-column:nth-child(39) { left: 37.5%; animation-delay: 38s; }
+.matrix-column:nth-child(40) { left: 42.5%; animation-delay: 39s; }
+.matrix-column:nth-child(41) { left: 47.5%; animation-delay: 40s; }
+.matrix-column:nth-child(42) { left: 52.5%; animation-delay: 41s; }
+.matrix-column:nth-child(43) { left: 57.5%; animation-delay: 42s; }
+.matrix-column:nth-child(44) { left: 62.5%; animation-delay: 43s; }
+.matrix-column:nth-child(45) { left: 67.5%; animation-delay: 44s; }
+.matrix-column:nth-child(46) { left: 72.5%; animation-delay: 45s; }
+.matrix-column:nth-child(47) { left: 77.5%; animation-delay: 46s; }
+.matrix-column:nth-child(48) { left: 82.5%; animation-delay: 47s; }
+.matrix-column:nth-child(49) { left: 87.5%; animation-delay: 48s; }
+.matrix-column:nth-child(50) { left: 92.5%; animation-delay: 49s; }
+.matrix-column:nth-child(51) { left: 97.5%; animation-delay: 50s; }
 
 @keyframes matrixRain {
   0% {
@@ -485,4 +516,83 @@ footer p {
     flex-direction: row;
     justify-content: center;
   }
+}
+
+/* Matrix-specific enhancements */
+body.theme-matrix {
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,40,0,0.85) 100%);
+}
+
+body.theme-matrix .section, 
+body.theme-matrix header, 
+body.theme-matrix .hero, 
+body.theme-matrix footer {
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+body.theme-matrix .section-title,
+body.theme-matrix .hero-title,
+body.theme-matrix .hero-subtitle {
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+}
+
+/* Cyberpunk-specific enhancements */
+body.theme-cyberpunk {
+  background: linear-gradient(to bottom, rgba(20,0,40,1) 0%, rgba(40,0,60,0.85) 100%);
+}
+
+body.theme-cyberpunk .section, 
+body.theme-cyberpunk header, 
+body.theme-cyberpunk .hero, 
+body.theme-cyberpunk footer {
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.3);
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  background: rgba(20, 0, 40, 0.5);
+}
+
+body.theme-cyberpunk .section-title,
+body.theme-cyberpunk .hero-title,
+body.theme-cyberpunk .hero-subtitle {
+  text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+/* Sunset-specific enhancements */
+body.theme-sunset {
+  background: linear-gradient(to bottom, rgba(40,0,0,1) 0%, rgba(60,20,0,0.85) 100%);
+}
+
+body.theme-sunset .section, 
+body.theme-sunset header, 
+body.theme-sunset .hero, 
+body.theme-sunset footer {
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  background: rgba(40, 0, 0, 0.5);
+}
+
+body.theme-sunset .section-title,
+body.theme-sunset .hero-title,
+body.theme-sunset .hero-subtitle {
+  text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+}
+
+/* Ocean-specific enhancements */
+body.theme-ocean {
+  background: linear-gradient(to bottom, rgba(0,20,40,1) 0%, rgba(0,40,80,0.85) 100%);
+}
+
+body.theme-ocean .section, 
+body.theme-ocean header, 
+body.theme-ocean .hero, 
+body.theme-ocean footer {
+  box-shadow: 0 0 40px rgba(0, 195, 255, 0.3);
+  border: 1px solid rgba(0, 195, 255, 0.3);
+  background: rgba(0, 20, 40, 0.5);
+}
+
+body.theme-ocean .section-title,
+body.theme-ocean .hero-title,
+body.theme-ocean .hero-subtitle {
+  text-shadow: 0 0 20px rgba(0, 195, 255, 0.8);
 }

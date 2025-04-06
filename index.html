@@ -8,10 +8,28 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="animations.css">
   <link rel="stylesheet" href="background.css">
+  <style>
+    #matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: #000;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
   <!-- Matrix Background -->
   <canvas id="matrix"></canvas>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="language-btn active" data-lang="en">EN</button>
+    <button class="language-btn" data-lang="fr">FR</button>
+  </div>
 
   <!-- Quick Actions -->
   <div class="quick-actions">
@@ -21,10 +39,10 @@
     <a href="assets/resume.pdf" target="_blank" class="quick-action-btn" data-tooltip="View Resume">
       <i class="fas fa-file-alt"></i>
     </a>
-    <a href="#" class="quick-action-btn" data-tooltip="Preview Resume" onclick="toggleResumeModal()">
+    <a href="#" class="quick-action-btn" data-tooltip="Preview Resume" onclick="toggleResumeModal(); return false;">
       <i class="fas fa-eye"></i>
     </a>
-    <a href="#" class="quick-action-btn" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <a href="#" class="quick-action-btn" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
       <i class="fas fa-arrow-up"></i>
     </a>
   </div>
@@ -185,6 +203,76 @@
           <p class="skill-name">Security Auditing</p>
         </div>
       </div>
+      
+      <!-- Skill Progress Bars -->
+      <h3 class="subsection-title fade-in" data-en="Skill Levels" data-fr="Niveaux de Compétence">Skill Levels</h3>
+      <div class="skill-progress-bars">
+        <div class="skill-item-progress fade-in">
+          <div class="skill-header">
+            <div class="skill-name">Penetration Testing</div>
+            <div class="skill-level">72%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-70" data-width="72%"></div>
+          </div>
+          <span class="skill-type type-security">Security</span>
+        </div>
+        
+        <div class="skill-item-progress fade-in delay-1">
+          <div class="skill-header">
+            <div class="skill-name">Python</div>
+            <div class="skill-level">55%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-55" data-width="55%"></div>
+          </div>
+          <span class="skill-type type-programming">Programming</span>
+        </div>
+        
+        <div class="skill-item-progress fade-in delay-1">
+          <div class="skill-header">
+            <div class="skill-name">Network Security</div>
+            <div class="skill-level">70%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-70" data-width="70%"></div>
+          </div>
+          <span class="skill-type type-network">Network</span>
+        </div>
+        
+        <div class="skill-item-progress fade-in delay-2">
+          <div class="skill-header">
+            <div class="skill-name">Web Development</div>
+            <div class="skill-level">55%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-55" data-width="55%"></div>
+          </div>
+          <span class="skill-type type-web">Web</span>
+        </div>
+        
+        <div class="skill-item-progress fade-in delay-2">
+          <div class="skill-header">
+            <div class="skill-name">Linux Administration</div>
+            <div class="skill-level">60%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-60" data-width="60%"></div>
+          </div>
+          <span class="skill-type type-system">System</span>
+        </div>
+        
+        <div class="skill-item-progress fade-in delay-3">
+          <div class="skill-header">
+            <div class="skill-name">Windows Scripting</div>
+            <div class="skill-level">60%</div>
+          </div>
+          <div class="skill-bar-container">
+            <div class="skill-bar level-60" data-width="60%"></div>
+          </div>
+          <span class="skill-type type-programming">Programming</span>
+        </div>
+      </div>
     </div>
   </section>
   
@@ -265,6 +353,7 @@
       <p>&copy; 2025 All Rights Reserved</p>
     </div>
   </footer>
+  <script src="matrix.js"></script>
   <script src="script.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
