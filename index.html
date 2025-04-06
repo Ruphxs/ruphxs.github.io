@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colby Niedzielski's Portfolio </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="background.css">
+</head>
+<body>
+  <!-- Matrix Background -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <a href="#contact" class="quick-action-btn" data-tooltip="Contact Me">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="assets/resume.pdf" target="_blank" class="quick-action-btn" data-tooltip="View Resume">
+      <i class="fas fa-file-alt"></i>
+    </a>
+    <a href="#" class="quick-action-btn" data-tooltip="Preview Resume" onclick="toggleResumeModal()">
+      <i class="fas fa-eye"></i>
+    </a>
+    <a href="#" class="quick-action-btn" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- Resume Preview Modal -->
+  <div class="resume-modal" id="resumeModal">
+    <div class="resume-content">
+      <span class="close-modal" onclick="toggleResumeModal()">&times;</span>
+      <iframe src="assets/resume.pdf" width="100%" height="100%" style="border: none;"></iframe>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo fade-in">Colby Niedzielski's Portfolio</div>
+        <button class="mobile-nav-toggle fade-in" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#home" class="fade-in delay-1">Home</a>
+          <a href="#about" class="fade-in delay-2">About</a>
+          <a href="#skills" class="fade-in delay-2">Skills</a>
+          <a href="#projects" class="fade-in delay-2">Projects</a>
+          <a href="#contact" class="fade-in delay-2">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <p class="pre-heading fade-in">Hi, my name is</p>
+      <h1 class="hero-title slide-in">Colby Niedzielski</h1>
+      <h2 class="hero-subtitle fade-in delay-1">I secure and protect networks as well as hack them.</h2>
+      <p class="hero-text fade-in delay-2">
+        Hi, I'm Colby Niedzielski, a 22-year-old Cyber Security student with a passion for building secure and efficient digital solutions.
+      </p>
+      <a href="#projects" class="cta-button fade-in delay-3">View My Work</a>
+    </div>    
+  </section>  
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-content">
+        <div class="about-text fade-in delay-1">
+          <p>
+            I'm a passionate Cyber Security student with experience in ethical hacking. My expertise includes crafting clean and efficient code, securing networks, and protecting data. 
+          </p>
+          <div class="dev-info">
+            <p>This portfolio website was built entirely from scratch, without the use of any website builders or templates. Every line of code was written by hand, showcasing my commitment to clean, efficient, and secure web development.</p>
+            <p>The site features custom animations, responsive design, and interactive elements - all implemented using pure HTML, CSS, and JavaScript.</p>
+            <div class="stats">
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Lines of HTML</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">700+</div>
+                <div class="stat-label">Lines of CSS</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">Lines of JavaScript</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image scale-in" id="easterEggTrigger">
+          <img src="assets/1.jpg" alt="About Me">
+          <div class="easter-egg-menu">
+            <div class="menu-header">
+              <i class="fas fa-wand-magic-sparkles"></i> Theme Switcher
+              <i class="fas fa-times close-menu"></i>
+            </div>
+            <div class="menu-items">
+              <button class="easter-egg-item" data-theme="matrix"><i class="fas fa-terminal"></i> Matrix Mode</button>
+              <button class="easter-egg-item" data-theme="cyberpunk"><i class="fas fa-robot"></i> Cyberpunk</button>
+              <button class="easter-egg-item" data-theme="sunset"><i class="fas fa-sun"></i> Sunset</button>
+              <button class="easter-egg-item" data-theme="ocean"><i class="fas fa-water"></i> Ocean</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">Skills</h2>
+      <div class="skills-content">
+        <div class="skill-item fade-in delay-1">
+          <div class="skill-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <p class="skill-name">Python</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <p class="skill-name">Web Design</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <p class="skill-name">Windows Scripting</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fab fa-linux"></i>
+          </div>
+          <p class="skill-name">Linux</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <p class="skill-name">Cisco Packet Tracer</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <p class="skill-name">Network Security</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-terminal"></i>
+          </div>
+          <p class="skill-name">Linux Administration</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <p class="skill-name">Windows Administration</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <p class="skill-name">Penetration Testing</p>
+        </div>
+        <div class="skill-item fade-in delay-2">
+          <div class="skill-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <p class="skill-name">Security Auditing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">Featured Project</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image-container">
+            <img src="assets/vaultimage2.png" alt="CyberVault Interface" class="project-image">
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">CyberVault</h3>
+              <p class="project-subtitle">Secure Password Manager</p>
+            </div>
+            <p class="project-description">A comprehensive password management solution built with security as the top priority. Features include end-to-end encryption, cross-platform synchronization, and biometric authentication support.</p>
+            <div class="project-tech">
+              <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+              <span class="tech-tag"><i class="fab fa-python"></i> Flask</span>
+              <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+              <span class="tech-tag"><i class="fas fa-lock"></i> AES-256</span>
+              <span class="tech-tag"><i class="fas fa-shield-alt"></i> CryptoJS</span>
+              <span class="tech-tag"><i class="fab fa-aws"></i> AWS SNS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ruphxs" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> View Source Code
+              </a>
+              <span class="coming-soon">
+                <i class="fas fa-clock"></i> Live Demo Coming Soon
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-content">
+        <p class="contact-text">Feel free to reach out for opportunities or collaborations!</p>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+          <div id="formStatus" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>Designed & Built by Colby Niedzielski</p>
+      <p>&copy; 2025 All Rights Reserved</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("7jTlj5-Gpwdjw12s-"); // Add your EmailJS public key here
+    })();
+    
+    function toggleResumeModal() {
+      const modal = document.getElementById('resumeModal');
+      modal.classList.toggle('active');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('resumeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
