@@ -4,35 +4,104 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!canvas) return;
   
   const ctx = canvas.getContext('2d');
+  let resizeTimeout;
+  let isResizing = false;
+  let previousWidth = window.innerWidth;
+  let previousHeight = window.innerHeight;
   
   // Set canvas size to window size
   function resizeCanvas() {
+    if (isResizing) return;
+    
+    isResizing = true;
+    
+    // Store current dimensions for comparison
+    const widthChange = Math.abs(window.innerWidth - previousWidth);
+    const heightChange = Math.abs(window.innerHeight - previousHeight);
+    
+    // Save the old canvas content
+    const tempCanvas = document.createElement('canvas');
+    const tempCtx = tempCanvas.getContext('2d');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    tempCtx.drawImage(canvas, 0, 0);
+    
+    // Save previous drops state
+    const oldDrops = [...drops];
+    
+    // Resize the canvas
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    
+    // Redraw the old content to maintain visual continuity
+    ctx.drawImage(tempCanvas, 0, 0);
+    
+    // Update matrix columns only if dimensions significantly changed
+    // Use a relative threshold based on screen size to determine "significant" change
+    const widthThreshold = Math.max(50, window.innerWidth * 0.05);
+    if (widthChange > widthThreshold) {
+      // Calculate new number of columns while preserving existing state
+      const newColumns = Math.ceil(canvas.width / fontSize);
+      
+      // If we need more columns than before
+      if (newColumns > drops.length) {
+        // Keep existing drops and add new ones
+        for (let i = drops.length; i < newColumns; i++) {
+          drops[i] = Math.random() * -100;
+        }
+      } 
+      // If we need fewer columns
+      else if (newColumns < drops.length) {
+        // Just trim the array to the new size
+        drops = drops.slice(0, newColumns);
+      }
+      
+      matrixColumns = newColumns;
+      
+      // Update previous dimensions
+      previousWidth = window.innerWidth;
+      previousHeight = window.innerHeight;
+    } else {
+      // If the change wasn't significant, completely preserve state
+      drops = oldDrops;
+    }
+    
+    isResizing = false;
   }
   
-  resizeCanvas();
+  // Debounced resize handler with longer delay for better performance
+  function debouncedResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeCanvas, 500);
+  }
   
-  // Handle window resize
-  window.addEventListener('resize', resizeCanvas);
+  // Initial sizing
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  previousWidth = window.innerWidth;
+  previousHeight = window.innerHeight;
   
-  // Handle orientation changes
+  // Add resize listener
+  window.addEventListener('resize', debouncedResize);
+  
+  // Handle orientation changes with longer delay
   window.addEventListener('orientationchange', function() {
-    setTimeout(resizeCanvas, 100);
+    // Small delay to allow browser to complete orientation change
+    setTimeout(resizeCanvas, 800);
   });
   
   // Matrix characters
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
   const charArray = chars.split('');
   const fontSize = 14;
-  let columns = Math.ceil(canvas.width / fontSize);
+  let matrixColumns = Math.ceil(window.innerWidth / fontSize);
   let drops = [];
   
   // Initialize drops
   function initializeMatrix() {
-    columns = Math.ceil(canvas.width / fontSize);
+    matrixColumns = Math.ceil(window.innerWidth / fontSize);
     drops = [];
-    for (let i = 0; i < columns; i++) {
+    for (let i = 0; i < matrixColumns; i++) {
       drops[i] = Math.random() * -100;
     }
   }

@@ -131,48 +131,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Fix for quick action buttons on mobile
-  document.addEventListener('DOMContentLoaded', function() {
-    const quickActionButtons = document.querySelectorAll('.quick-action-btn');
-    
+  const quickActionButtons = document.querySelectorAll('.quick-action-btn');
+  
+  if ('ontouchstart' in window) {
     quickActionButtons.forEach(button => {
-      // Prevent default on touch start to avoid issues
-      button.addEventListener('touchstart', function(e) {
-        e.preventDefault();
+      // Replace the original onclick handlers with proper touch event handlers
+      const originalOnclick = button.getAttribute('onclick');
+      if (originalOnclick) {
+        button.removeAttribute('onclick');
         
-        // Get the onclick attribute value
-        const onclickAttr = this.getAttribute('onclick');
+        // Create a function from the onclick string
+        const clickHandler = new Function(originalOnclick.replace('return false;', ''));
         
-        // If it's a direct link (no onclick), follow the href
-        if (!onclickAttr) {
+        // Add touch event listeners
+        button.addEventListener('touchstart', function(e) {
+          e.preventDefault();
+          this.classList.add('active');
+        }, { passive: false });
+        
+        button.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          this.classList.remove('active');
+          
+          // Execute the original onclick handler
+          clickHandler.call(this);
+        }, { passive: false });
+      } else {
+        // Handle links without onclick
+        button.addEventListener('touchstart', function(e) {
+          this.classList.add('active');
+        }, { passive: false });
+        
+        button.addEventListener('touchend', function(e) {
+          this.classList.remove('active');
+          
           const href = this.getAttribute('href');
           if (href && href !== '#') {
+            e.preventDefault();
             if (this.getAttribute('target') === '_blank') {
               window.open(href, '_blank');
             } else {
               window.location.href = href;
             }
           }
-        } else {
-          // If it has an onclick handler, execute it
-          const handler = new Function(onclickAttr.replace('return false;', ''));
-          handler.call(this);
-        }
-      }, {passive: false});
+        }, { passive: false });
+      }
       
-      // Add active state on touch
-      button.addEventListener('touchstart', function() {
-        this.classList.add('active');
-      });
-      
-      button.addEventListener('touchend', function() {
+      // Prevent default on all touch events to avoid double-triggering
+      button.addEventListener('touchmove', function(e) {
+        e.preventDefault();
         this.classList.remove('active');
-      });
+      }, { passive: false });
       
-      button.addEventListener('touchcancel', function() {
+      button.addEventListener('touchcancel', function(e) {
         this.classList.remove('active');
-      });
+      }, { passive: false });
     });
-  });
+  }
 
   // Skill progress bar animation
   function animateSkillBars() {
@@ -243,11 +258,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Add event listeners to language buttons
-  languageBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const lang = this.getAttribute('data-lang');
-      switchLanguage(lang);
+  // Improved touch handling for language buttons
+  const languageButtons = document.querySelectorAll('.language-btn');
+  
+  if ('ontouchstart' in window) {
+    languageButtons.forEach(button => {
+      button.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        this.classList.add('touch-active');
+      }, { passive: false });
+      
+      button.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        this.classList.remove('touch-active');
+        
+        // Set active class on this button and remove from others
+        languageButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Handle language change
+        const lang = this.getAttribute('data-lang');
+        if (lang) {
+          switchLanguage(lang);
+        }
+      }, { passive: false });
+      
+      button.addEventListener('touchmove', function(e) {
+        this.classList.remove('touch-active');
+      }, { passive: false });
+      
+      button.addEventListener('touchcancel', function(e) {
+        this.classList.remove('touch-active');
+      }, { passive: false });
     });
-  });
+  }
+  
+  // Add mobile-specific meta tag to prevent unwanted zoom/scaling
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  if (viewportMeta) {
+    viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+  }
+  
+  // Prevent scrolling when touching the quick action buttons
+  document.addEventListener('touchmove', function(e) {
+    const target = e.target;
+    if (target.closest('.quick-actions') || target.closest('.quick-action-btn') || 
+        target.closest('.language-switcher') || target.closest('.language-btn')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 }); 
