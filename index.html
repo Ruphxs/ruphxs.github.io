@@ -1,377 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>      
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Colby Niedzielski's Portfolio </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="animations.css">
-  <link rel="stylesheet" href="background.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guidos Garage | Sydney NS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    #matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      background: #000;
-      pointer-events: none;
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+    }
+    .jdm-accent {
+      letter-spacing: 2px;
+      border-bottom: 2px solid white;
+      padding-bottom: 4px;
     }
   </style>
 </head>
-<body>
-  <!-- Matrix Background -->
-  <canvas id="matrix"></canvas>
-
-  <!-- Language Switcher -->
-  <div class="language-switcher">
-    <button class="language-btn active" data-lang="en">EN</button>
-    <button class="language-btn" data-lang="fr">FR</button>
-  </div>
-
-  <!-- Quick Actions -->
-  <div class="quick-actions">
-    <a href="#contact" class="quick-action-btn" data-tooltip="Contact Me">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <a href="assets/resume.pdf" target="_blank" class="quick-action-btn" data-tooltip="View Resume">
-      <i class="fas fa-file-alt"></i>
-    </a>
-    <a href="#" class="quick-action-btn" data-tooltip="Preview Resume" onclick="toggleResumeModal(); return false;">
-      <i class="fas fa-eye"></i>
-    </a>
-    <a href="#" class="quick-action-btn" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-      <i class="fas fa-arrow-up"></i>
-    </a>
-  </div>
-
-  <!-- Resume Preview Modal -->
-  <div class="resume-modal" id="resumeModal">
-    <div class="resume-content">
-      <span class="close-modal" onclick="toggleResumeModal()">&times;</span>
-      <iframe src="assets/resume.pdf" width="100%" height="100%" style="border: none;"></iframe>
-    </div>
-  </div>
+<body class="text-white">
 
   <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo fade-in">Colby Niedzielski's Portfolio</div>
-        <button class="mobile-nav-toggle fade-in" aria-label="Toggle navigation menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
-          <a href="#home" class="fade-in delay-1">Home</a>
-          <a href="#about" class="fade-in delay-2">About</a>
-          <a href="#skills" class="fade-in delay-2">Skills</a>
-          <a href="#projects" class="fade-in delay-2">Projects</a>
-          <a href="#contact" class="fade-in delay-2">Contact</a>
-        </div>
-      </nav>
-    </div>
+  <header class="text-center py-6 border-b border-gray-700">
+    <h1 class="text-4xl font-bold uppercase jdm-accent">Guidos Garage</h1>
+    <p class="text-sm mt-2 text-gray-400">JDM-Driven Repairs • Mods • Merch • Sydney, Nova Scotia</p>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container hero-content">
-      <p class="pre-heading fade-in">Hi, my name is</p>
-      <h1 class="hero-title slide-in">Colby Niedzielski</h1>
-      <h2 class="hero-subtitle fade-in delay-1">I secure and protect networks as well as hack them.</h2>
-      <p class="hero-text fade-in delay-2">
-        Hi, I'm Colby Niedzielski, a 22-year-old Cyber Security student with a passion for building secure and efficient digital solutions.
-      </p>
-      <div class="hero-buttons fade-in delay-3">
-        <a href="#projects" class="cta-button">View My Work</a>
-        <a href="assets/resume.pdf" target="_blank" class="cta-button">View My Resume</a>
-      </div>
-    </div>    
-  </section>  
+  <section class="text-center py-12 px-4">
+    <h2 class="text-3xl md:text-5xl font-bold uppercase">Built Not Bought</h2>
+    <p class="mt-4 text-gray-300 max-w-xl mx-auto">Performance tuning, custom builds, and reliable service — all under one hood.</p>
+    <a href="#book" class="mt-6 inline-block px-6 py-3 border border-white uppercase tracking-widest hover:bg-white hover:text-black transition">Book a Repair</a>
+  </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title fade-in">About Me</h2>
-      <div class="about-content">
-        <div class="about-text fade-in delay-1">
-          <p>
-            I'm a passionate Cyber Security student with experience in ethical hacking. My expertise includes crafting clean and efficient code, securing networks, and protecting data. 
-          </p>
-          <div class="dev-info">
-            <p>This portfolio website was built entirely from scratch, without the use of any website builders or templates. Every line of code was written by hand, showcasing my commitment to clean, efficient, and secure web development.</p>
-            <p>The site features custom animations, responsive design, and interactive elements - all implemented using pure HTML, CSS, and JavaScript.</p>
-            <div class="stats">
-              <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Lines of HTML</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">700+</div>
-                <div class="stat-label">Lines of CSS</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">300+</div>
-                <div class="stat-label">Lines of JavaScript</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="about-image scale-in" id="easterEggTrigger">
-          <img src="assets/1.jpg" alt="About Me">
-          <div class="easter-egg-menu">
-            <div class="menu-header">
-              <i class="fas fa-wand-magic-sparkles"></i> Theme Switcher
-              <i class="fas fa-times close-menu"></i>
-            </div>
-            <div class="menu-items">
-              <button class="easter-egg-item" data-theme="matrix"><i class="fas fa-terminal"></i> Matrix Mode</button>
-              <button class="easter-egg-item" data-theme="cyberpunk"><i class="fas fa-robot"></i> Cyberpunk</button>
-              <button class="easter-egg-item" data-theme="sunset"><i class="fas fa-sun"></i> Sunset</button>
-              <button class="easter-egg-item" data-theme="ocean"><i class="fas fa-water"></i> Ocean</button>
-            </div>
-          </div>
-        </div>
+  <!-- Our Cars -->
+  <section class="py-12 px-4 bg-gray-900" id="ourcars">
+    <h2 class="text-2xl uppercase jdm-accent text-center mb-10">Our Cars</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="bg-black p-4 border border-gray-700 rounded shadow">
+        <img src="https://via.placeholder.com/600x300?text=2009+Civic+Si+FBO" alt="2009 Civic Si" class="w-full mb-4">
+        <h3 class="text-xl font-bold">2009 Honda Civic Si – FBO</h3>
+        <p class="text-gray-400">Full bolt-ons, tuned, daily driven and track ready.</p>
+      </div>
+      <div class="bg-black p-4 border border-gray-700 rounded shadow">
+        <img src="https://via.placeholder.com/600x300?text=350Z+FBO" alt="Nissan 350Z" class="w-full mb-4">
+        <h3 class="text-xl font-bold">Nissan 350Z – FBO</h3>
+        <p class="text-gray-400">Clean Z33 with full bolt-ons, aggressive stance, and street attitude.</p>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title fade-in">Skills</h2>
-      <div class="skills-content">
-        <div class="skill-item fade-in delay-1">
-          <div class="skill-icon">
-            <i class="fab fa-python"></i>
-          </div>
-          <p class="skill-name">Python</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fab fa-html5"></i>
-          </div>
-          <p class="skill-name">Web Design</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-laptop"></i>
-          </div>
-          <p class="skill-name">Windows Scripting</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fab fa-linux"></i>
-          </div>
-          <p class="skill-name">Linux</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-network-wired"></i>
-          </div>
-          <p class="skill-name">Cisco Packet Tracer</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <p class="skill-name">Network Security</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-terminal"></i>
-          </div>
-          <p class="skill-name">Linux Administration</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-server"></i>
-          </div>
-          <p class="skill-name">Windows Administration</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-bug"></i>
-          </div>
-          <p class="skill-name">Penetration Testing</p>
-        </div>
-        <div class="skill-item fade-in delay-2">
-          <div class="skill-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <p class="skill-name">Security Auditing</p>
-        </div>
-      </div>
-      
-      <!-- Skill Progress Bars -->
-      <h3 class="subsection-title fade-in" data-en="Skill Levels" data-fr="Niveaux de Compétence">Skill Levels</h3>
-      <div class="skill-progress-bars">
-        <div class="skill-item-progress fade-in">
-          <div class="skill-header">
-            <div class="skill-name">Penetration Testing</div>
-            <div class="skill-level">72%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-70" data-width="72%"></div>
-          </div>
-          <span class="skill-type type-security">Security</span>
-        </div>
-        
-        <div class="skill-item-progress fade-in delay-1">
-          <div class="skill-header">
-            <div class="skill-name">Python</div>
-            <div class="skill-level">55%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-55" data-width="55%"></div>
-          </div>
-          <span class="skill-type type-programming">Programming</span>
-        </div>
-        
-        <div class="skill-item-progress fade-in delay-1">
-          <div class="skill-header">
-            <div class="skill-name">Network Security</div>
-            <div class="skill-level">70%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-70" data-width="70%"></div>
-          </div>
-          <span class="skill-type type-network">Network</span>
-        </div>
-        
-        <div class="skill-item-progress fade-in delay-2">
-          <div class="skill-header">
-            <div class="skill-name">Web Development</div>
-            <div class="skill-level">55%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-55" data-width="55%"></div>
-          </div>
-          <span class="skill-type type-web">Web</span>
-        </div>
-        
-        <div class="skill-item-progress fade-in delay-2">
-          <div class="skill-header">
-            <div class="skill-name">Linux Administration</div>
-            <div class="skill-level">60%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-60" data-width="60%"></div>
-          </div>
-          <span class="skill-type type-system">System</span>
-        </div>
-        
-        <div class="skill-item-progress fade-in delay-3">
-          <div class="skill-header">
-            <div class="skill-name">Windows Scripting</div>
-            <div class="skill-level">60%</div>
-          </div>
-          <div class="skill-bar-container">
-            <div class="skill-bar level-60" data-width="60%"></div>
-          </div>
-          <span class="skill-type type-programming">Programming</span>
-        </div>
-      </div>
-    </div>
+  <!-- Booking Section -->
+  <section id="book" class="py-12 px-4">
+    <h2 class="text-2xl uppercase jdm-accent text-center mb-10">Book a Repair</h2>
+    <form class="max-w-2xl mx-auto bg-gray-800 p-6 rounded">
+      <label class="block mb-4">
+        <span class="block mb-1 uppercase text-sm">Name</span>
+        <input type="text" class="w-full bg-black border border-gray-600 p-2" placeholder="Your name" />
+      </label>
+      <label class="block mb-4">
+        <span class="block mb-1 uppercase text-sm">Email</span>
+        <input type="email" class="w-full bg-black border border-gray-600 p-2" placeholder="you@example.com" />
+      </label>
+      <label class="block mb-4">
+        <span class="block mb-1 uppercase text-sm">Vehicle Info</span>
+        <input type="text" class="w-full bg-black border border-gray-600 p-2" placeholder="Make, Model, Year" />
+      </label>
+      <label class="block mb-6">
+        <span class="block mb-1 uppercase text-sm">Service Needed</span>
+        <textarea class="w-full bg-black border border-gray-600 p-2" rows="4" placeholder="Describe the issue or service you need..."></textarea>
+      </label>
+      <button class="bg-white text-black px-6 py-2 uppercase font-bold hover:bg-gray-300 transition">Submit</button>
+    </form>
   </section>
-  
 
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title fade-in">Featured Project</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image-container">
-            <img src="assets/vaultimage2.png" alt="CyberVault Interface" class="project-image">
-          </div>
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">CyberVault</h3>
-              <p class="project-subtitle">Secure Password Manager</p>
-            </div>
-            <p class="project-description">A comprehensive password management solution built with security as the top priority. Features include end-to-end encryption, cross-platform synchronization, and biometric authentication support.</p>
-            <div class="project-tech">
-              <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-              <span class="tech-tag"><i class="fab fa-python"></i> Flask</span>
-              <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
-              <span class="tech-tag"><i class="fas fa-lock"></i> AES-256</span>
-              <span class="tech-tag"><i class="fas fa-shield-alt"></i> CryptoJS</span>
-              <span class="tech-tag"><i class="fab fa-aws"></i> AWS SNS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/ruphxs" class="project-link" target="_blank">
-                <i class="fab fa-github"></i> View Source Code
-              </a>
-              <span class="coming-soon">
-                <i class="fas fa-clock"></i> Live Demo Coming Soon
-              </span>
-            </div>
-          </div>
-        </div>
+  <!-- Merch Shop -->
+  <section class="py-12 px-4 bg-gray-900" id="shop">
+    <h2 class="text-2xl uppercase jdm-accent text-center mb-10">Shop</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-black border border-gray-700 p-4 rounded text-center">
+        <img src="https://via.placeholder.com/300x200?text=Guidos+Garage+Tee" alt="T-Shirt" class="mb-4 w-full">
+        <h3 class="font-bold mb-1">Guidos Garage T-Shirt</h3>
+        <p class="text-gray-400 mb-2">$25.00</p>
+        <button class="border px-4 py-2 hover:bg-white hover:text-black transition uppercase text-sm">Add to Cart</button>
       </div>
-    </div>
-  </section>
-  
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-content">
-        <p class="contact-text">Feel free to reach out for opportunities or collaborations!</p>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your Name">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="Your Email">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
-          </div>
-          <button type="submit" class="submit-button">Send Message</button>
-          <div id="formStatus" class="form-status"></div>
-        </form>
+      <div class="bg-black border border-gray-700 p-4 rounded text-center">
+        <img src="https://via.placeholder.com/300x200?text=Slap+Sticker" alt="Sticker" class="mb-4 w-full">
+        <h3 class="font-bold mb-1">Slap Stickers (5-Pack)</h3>
+        <p class="text-gray-400 mb-2">$10.00</p>
+        <button class="border px-4 py-2 hover:bg-white hover:text-black transition uppercase text-sm">Add to Cart</button>
       </div>
+      <!-- Add more merch here -->
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://github.com/ruphxs" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/colbynu" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/colby.niedzielskii" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>Designed & Built by Colby Niedzielski</p>
-      <p>&copy; 2025 All Rights Reserved</p>
-    </div>
+  <footer class="text-center py-6 border-t border-gray-700 text-gray-500">
+    <p>© 2025 Guidos Garage • Sydney, NS • All Rights Reserved</p>
+    <p class="mt-2 text-xs">IG: @guidosgarage | Email: info@guidosgarage.ca</p>
   </footer>
-  <script src="matrix.js"></script>
-  <script src="script.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("7jTlj5-Gpwdjw12s-"); // Add your EmailJS public key here
-    })();
-    
-    function toggleResumeModal() {
-      const modal = document.getElementById('resumeModal');
-      modal.classList.toggle('active');
-    }
 
-    // Close modal when clicking outside
-    document.getElementById('resumeModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.classList.remove('active');
-      }
-    });
-  </script>
 </body>
 </html>
