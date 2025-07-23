@@ -1,11 +1,10 @@
-/* Global Styling */
 body {
   background-color: #000;
   color: #fff;
   font-family: 'Oswald', sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
 a {
@@ -19,12 +18,10 @@ a:hover {
   text-shadow: 0 0 5px #fff;
 }
 
-/* Headings */
 h1, h2, h3 {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
-  margin-bottom: 0.5em;
 }
 
 h1 {
@@ -38,7 +35,6 @@ h2 {
   padding-bottom: 5px;
 }
 
-/* Section Containers */
 section {
   padding: 60px 20px;
 }
@@ -47,7 +43,6 @@ section {
   text-align: center;
 }
 
-/* Buttons */
 button,
 input[type="submit"],
 a.button {
@@ -69,7 +64,6 @@ a.button:hover {
   box-shadow: 0 0 8px #fff;
 }
 
-/* Form */
 form {
   background: #111;
   padding: 30px;
@@ -94,7 +88,6 @@ form textarea:focus {
   box-shadow: 0 0 8px #fff;
 }
 
-/* Car Cards */
 .car-card {
   background: #111;
   border: 1px solid #444;
@@ -108,7 +101,6 @@ form textarea:focus {
   box-shadow: 0 0 15px #fff3;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -117,34 +109,31 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Custom Accents */
-.jdm-glow {
-  text-shadow: 0 0 5px white, 0 0 10px #999;
+.jdm-accent {
+  letter-spacing: 2px;
+  border-bottom: 2px solid white;
+  padding-bottom: 4px;
 }
 
-.jdm-border {
-  border-left: 4px solid white;
-  padding-left: 15px;
-  margin-bottom: 20px;
+.jdm-type {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  width: fit-content;
+  display: inline-block;
+  font-family: monospace;
+  animation: none;
 }
 
-/* Shop Cards */
-.shop-item {
-  border: 1px solid #555;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #111;
-  transition: 0.3s;
+.car-card:hover .jdm-type {
+  animation: typing 2s steps(30, end) 1, blink .7s step-end infinite;
 }
 
-.shop-item:hover {
-  box-shadow: 0 0 10px #fff3;
-  transform: scale(1.03);
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-.shop-item img {
-  max-width: 100%;
-  border-radius: 4px;
-  margin-bottom: 10px;
+@keyframes blink {
+  50% { border-color: transparent; }
 }
