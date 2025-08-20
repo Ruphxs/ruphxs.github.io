@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
         
         .jdm-stripe {
             height: 5px;
-            background: linear-gradient(90deg, #0a0a0a 0%, #0a0a0a 20%, #e60000 20%, #e60000 40%, #0a0a0a 40%, #0a0a0a 60%, #e60000 60%, #e60000 80%, #0a0a0a 80%, #0a0a0a 100%);
+            background: linear-gradient(90deg, #0a0a0a 0%, #0a0a0a 20%, #8b0000 20%, #8b0000 40%, #0a0a0a 40%, #0a0a0a 60%, #8b0000 60%, #8b0000 80%, #0a0a0a 80%, #0a0a0a 100%);
         }
         
         .card-hover {
@@ -26,7 +27,7 @@
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
         }
         
         .nav-link {
@@ -40,7 +41,7 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #e60000;
+            background-color: #8b0000;
             transition: width 0.3s ease;
         }
         
@@ -60,7 +61,7 @@
             height: 3px;
             bottom: -5px;
             left: 0;
-            background-color: #e60000;
+            background-color: #8b0000;
         }
         
         .part-search::placeholder {
@@ -69,7 +70,7 @@
         
         .part-search:focus {
             outline: none;
-            border-color: #e60000;
+            border-color: #8b0000;
         }
     </style>
 </head>
@@ -81,23 +82,18 @@
     <nav class="bg-black py-4 px-6 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center mb-4 md:mb-0">
-                <div class="w-12 h-12 rounded-full overflow-hidden mr-3">
-                    <img src="/assets/logo.jpg" alt="Guido's Garage Logo" class="w-full h-full object-cover">
-            </div>
-            <h1 class="text-2xl font-bold text-white">
-                <span class="text-red-600">GUIDO'S</span> GARAGE
-            </h1>
+        <div class="flex items-center mb-4 md:mb-0">
+            <img src="logo.jpg" alt="Guido's Garage Logo" class="h-12">
         </div>
             
             <!-- Nav Links -->
             <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-                <a href="#services" class="nav-link text-white hover:text-red-500">Services</a>
-                <a href="#parts" class="nav-link text-white hover:text-red-500">Used Parts</a>
-                <a href="#inventory" class="nav-link text-white hover:text-red-500">Used Cars</a>
-                <a href="#merch" class="nav-link text-white hover:text-red-500">Merchandise</a>
-                <a href="#request" class="nav-link text-white hover:text-red-500">Request Parts</a>
-                <a href="#contact" class="nav-link text-white hover:text-red-500">Contact</a>
+                <a href="#services" class="nav-link text-white hover:text-red-700">Services</a>
+                <a href="#parts" class="nav-link text-white hover:text-red-700">Used Parts</a>
+                <a href="#inventory" class="nav-link text-white hover:text-red-700">Used Cars</a>
+                <a href="#merch" class="nav-link text-white hover:text-red-700">Merchandise</a>
+                <a href="#request" class="nav-link text-white hover:text-red-700">Request Parts</a>
+                <a href="#contact" class="nav-link text-white hover:text-red-700">Contact</a>
             </div>
             
             <!-- Mobile Menu Button -->
@@ -117,16 +113,16 @@
         <div class="absolute inset-0 flex items-center justify-center text-center px-4">
             <div class="max-w-4xl">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-                    <span class="text-red-600">PERFORMANCE</span> MEETS AFFORDABILITY
+                    <span class="text-red-800">PERFORMANCE</span> MEETS AFFORDABILITY
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-8">
                     Quality repairs, rare parts, and premium merchandise at wicked prices
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#services" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <a href="#services" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
                         OUR SERVICES
                     </a>
-                    <a href="#inventory" class="bg-transparent border-2 border-white hover:border-red-600 text-white hover:text-red-600 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <a href="#inventory" class="bg-transparent border-2 border-white hover:border-red-800 text-white hover:text-red-800 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
                         VIEW INVENTORY
                     </a>
                 </div>
@@ -138,13 +134,13 @@
     <section id="services" class="py-16 bg-black px-6">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                OUR <span class="text-red-600">SERVICES</span>
+                OUR <span class="text-red-800">SERVICES</span>
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl card-hover">
-                    <div class="h-48 bg-red-600 flex items-center justify-center">
+                    <div class="h-48 bg-red-800 flex items-center justify-center">
                         <i class="fas fa-wrench text-white text-6xl"></i>
                     </div>
                     <div class="p-6">
@@ -154,13 +150,13 @@
                         </p>
                         <ul class="text-gray-400 space-y-2">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Engine rebuilds
+                                <i class="fas fa-check text-red-800 mr-2"></i> Engine rebuilds
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Turbo installations
+                                <i class="fas fa-check text-red-800 mr-2"></i> Turbo installations
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> ECU tuning
+                                <i class="fas fa-check text-red-800 mr-2"></i> ECU tuning
                             </li>
                         </ul>
                     </div>
@@ -168,7 +164,7 @@
                 
                 <!-- Service 2 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl card-hover">
-                    <div class="h-48 bg-red-600 flex items-center justify-center">
+                    <div class="h-48 bg-red-800 flex items-center justify-center">
                         <i class="fas fa-car text-white text-6xl"></i>
                     </div>
                     <div class="p-6">
@@ -178,13 +174,13 @@
                         </p>
                         <ul class="text-gray-400 space-y-2">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Full body restoration
+                                <i class="fas fa-check text-red-800 mr-2"></i> Full body restoration
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Interior refurbishment
+                                <i class="fas fa-check text-red-800 mr-2"></i> Interior refurbishment
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Concours-level detailing
+                                <i class="fas fa-check text-red-800 mr-2"></i> Concours-level detailing
                             </li>
                         </ul>
                     </div>
@@ -192,7 +188,7 @@
                 
                 <!-- Service 3 -->
                 <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl card-hover">
-                    <div class="h-48 bg-red-600 flex items-center justify-center">
+                    <div class="h-48 bg-red-800 flex items-center justify-center">
                         <i class="fas fa-cogs text-white text-6xl"></i>
                     </div>
                     <div class="p-6">
@@ -202,13 +198,13 @@
                         </p>
                         <ul class="text-gray-400 space-y-2">
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Roll cages
+                                <i class="fas fa-check text-red-800 mr-2"></i> Roll cages
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Exhaust systems
+                                <i class="fas fa-check text-red-800 mr-2"></i> Exhaust systems
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check text-red-600 mr-2"></i> Custom brackets
+                                <i class="fas fa-check text-red-800 mr-2"></i> Custom brackets
                             </li>
                         </ul>
                     </div>
@@ -221,21 +217,21 @@
     <section id="parts" class="py-16 bg-gray-900 px-6">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                USED <span class="text-red-600">PARTS</span>
+                USED <span class="text-red-800">PARTS</span>
             </h2>
             
             <!-- Parts Search -->
             <div class="max-w-2xl mx-auto mb-12 relative">
                 <input type="text" placeholder="Search for parts (e.g., RB26 head, 2JZ block, S2000 seats)" 
-                       class="w-full bg-gray-800 text-white px-6 py-4 rounded-full part-search border border-gray-700 focus:border-red-600 transition duration-300">
-                <button class="absolute right-2 top-2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full">
+                       class="w-full bg-gray-800 text-white px-6 py-4 rounded-full part-search border border-gray-700 focus:border-red-800 transition duration-300">
+                <button class="absolute right-2 top-2 bg-red-800 hover:bg-red-900 text-white p-2 rounded-full">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
             
             <!-- Parts Filter -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="bg-red-600 text-white px-4 py-2 rounded-full">All Parts</button>
+                <button class="bg-red-800 text-white px-4 py-2 rounded-full">All Parts</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">Engine</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">Transmission</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">Suspension</button>
@@ -251,13 +247,13 @@
                     <div class="h-48 bg-gray-700 flex items-center justify-center relative">
                         <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="RB26 Engine" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">ENGINE</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">ENGINE</span>
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-1">RB26DETT Engine</h3>
                         <p class="text-gray-400 text-sm mb-3">From R34 Skyline GT-R, 80k miles</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$4,500</span>
+                            <span class="text-red-800 font-bold text-xl">$4,500</span>
                             <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 <i class="fas fa-shopping-cart mr-1"></i> Add to Cart
                             </button>
@@ -270,13 +266,13 @@
                     <div class="h-48 bg-gray-700 flex items-center justify-center relative">
                         <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="Recaro Seats" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">INTERIOR</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">INTERIOR</span>
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-1">Recaro SR3 Seats (Pair)</h3>
                         <p class="text-gray-400 text-sm mb-3">Red/black fabric, excellent condition</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$1,200</span>
+                            <span class="text-red-800 font-bold text-xl">$1,200</span>
                             <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 <i class="fas fa-shopping-cart mr-1"></i> Add to Cart
                             </button>
@@ -289,13 +285,13 @@
                     <div class="h-48 bg-gray-700 flex items-center justify-center relative">
                         <img src="https://images.unsplash.com/photo-1597938431401-58d3aec2a0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="BBS Wheels" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">EXTERIOR</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">EXTERIOR</span>
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-1">BBS LM Wheels (Set of 4)</h3>
                         <p class="text-gray-400 text-sm mb-3">18x9.5 +15, Gold centers, minor curb rash</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$2,800</span>
+                            <span class="text-red-800 font-bold text-xl">$2,800</span>
                             <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 <i class="fas fa-shopping-cart mr-1"></i> Add to Cart
                             </button>
@@ -308,13 +304,13 @@
                     <div class="h-48 bg-gray-700 flex items-center justify-center relative">
                         <img src="https://images.unsplash.com/photo-1598488032890-85a5d3616a9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="HKS Exhaust" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">EXHAUST</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">EXHAUST</span>
                     </div>
                     <div class="p-4">
                         <h3 class="text-lg font-bold text-white mb-1">HKS Hi-Power Exhaust</h3>
                         <p class="text-gray-400 text-sm mb-3">For S15 Silvia, titanium tip, good condition</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$650</span>
+                            <span class="text-red-800 font-bold text-xl">$650</span>
                             <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 <i class="fas fa-shopping-cart mr-1"></i> Add to Cart
                             </button>
@@ -324,7 +320,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <button class="bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                <button class="bg-transparent border-2 border-red-800 text-red-800 hover:bg-red-800 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     VIEW ALL PARTS <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
@@ -335,12 +331,12 @@
     <section id="inventory" class="py-16 bg-black px-6">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                USED <span class="text-red-600">CARS</span>
+                USED <span class="text-red-800">CARS</span>
             </h2>
             
             <!-- Inventory Filter -->
             <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="bg-red-600 text-white px-4 py-2 rounded-full">All Vehicles</button>
+                <button class="bg-red-800 text-white px-4 py-2 rounded-full">All Vehicles</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">JDM</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">Euro</button>
                 <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-full">American</button>
@@ -355,13 +351,13 @@
                     <div class="h-64 bg-gray-800 relative">
                         <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="R32 Skyline" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">JDM</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">JDM</span>
                         <span class="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded">1992</span>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold text-white">Nissan Skyline GT-R R32</h3>
-                            <span class="text-red-600 font-bold text-xl">$38,500</span>
+                            <span class="text-red-800 font-bold text-xl">$38,500</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-4">VIN: BNR32-123456 • 68,000 miles • Clean title</p>
                         
@@ -385,10 +381,10 @@
                         </div>
                         
                         <div class="flex justify-between items-center">
-                            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition duration-300">
                                 VIEW DETAILS
                             </button>
-                            <button class="bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            <button class="bg-transparent border border-red-800 text-red-800 hover:bg-red-800 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
                                 <i class="fas fa-phone-alt mr-1"></i> CONTACT
                             </button>
                         </div>
@@ -400,13 +396,13 @@
                     <div class="h-64 bg-gray-800 relative">
                         <img src="https://images.unsplash.com/photo-1624704767349-75a8f1a2d5b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="FD RX7" class="w-full h-full object-cover">
-                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">JDM</span>
+                        <span class="absolute top-3 left-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">JDM</span>
                         <span class="absolute top-3 right-3 bg-black text-white text-xs font-bold px-2 py-1 rounded">1995</span>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold text-white">Mazda RX-7 FD3S</h3>
-                            <span class="text-red-600 font-bold text-xl">$29,900</span>
+                            <span class="text-red-800 font-bold text-xl">$29,900</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-4">VIN: JM1FD331X03012345 • 89,000 miles • Clean title</p>
                         
@@ -430,10 +426,10 @@
                         </div>
                         
                         <div class="flex justify-between items-center">
-                            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition duration-300">
                                 VIEW DETAILS
                             </button>
-                            <button class="bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                            <button class="bg-transparent border border-red-800 text-red-800 hover:bg-red-800 hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
                                 <i class="fas fa-phone-alt mr-1"></i> CONTACT
                             </button>
                         </div>
@@ -442,7 +438,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <button class="bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                <button class="bg-transparent border-2 border-red-800 text-red-800 hover:bg-red-800 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     VIEW FULL INVENTORY <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
@@ -453,7 +449,7 @@
     <section id="merch" class="py-16 bg-gray-900 px-6">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                <span class="text-red-600">GUIDO'S</span> MERCH
+                <span class="text-red-800">GUIDO'S</span> MERCH
             </h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -467,12 +463,12 @@
                         <h3 class="text-lg font-bold text-white mb-1">Guidos Garage Logo Tee</h3>
                         <p class="text-gray-400 text-sm mb-3">Black cotton t-shirt with red logo print</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$29.99</span>
+                            <span class="text-red-800 font-bold text-xl">$29.99</span>
                             <div class="flex space-x-2">
                                 <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     Sizes
                                 </button>
-                                <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition duration-300">
+                                <button class="bg-red-800 hover:bg-red-900 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
                             </div>
@@ -490,12 +486,12 @@
                         <h3 class="text-lg font-bold text-white mb-1">Guidos Garage Hoodie</h3>
                         <p class="text-gray-400 text-sm mb-3">Black pullover hoodie with embroidered logo</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$59.99</span>
+                            <span class="text-red-800 font-bold text-xl">$59.99</span>
                             <div class="flex space-x-2">
                                 <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     Sizes
                                 </button>
-                                <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition duration-300">
+                                <button class="bg-red-800 hover:bg-red-900 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
                             </div>
@@ -513,12 +509,12 @@
                         <h3 class="text-lg font-bold text-white mb-1">Guidos Garage Snapback</h3>
                         <p class="text-gray-400 text-sm mb-3">Black snapback hat with embroidered logo</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$24.99</span>
+                            <span class="text-red-800 font-bold text-xl">$24.99</span>
                             <div class="flex space-x-2">
                                 <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     One Size
                                 </button>
-                                <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition duration-300">
+                                <button class="bg-red-800 hover:bg-red-900 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
                             </div>
@@ -536,12 +532,12 @@
                         <h3 class="text-lg font-bold text-white mb-1">Guidos Garage Sticker Pack</h3>
                         <p class="text-gray-400 text-sm mb-3">Set of 5 high-quality vinyl stickers</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-red-600 font-bold text-xl">$14.99</span>
+                            <span class="text-red-800 font-bold text-xl">$14.99</span>
                             <div class="flex space-x-2">
                                 <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     Details
                                 </button>
-                                <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition duration-300">
+                                <button class="bg-red-800 hover:bg-red-900 text-white px-3 py-1 rounded text-sm transition duration-300">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
                             </div>
@@ -551,7 +547,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <button class="bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                <button class="bg-transparent border-2 border-red-800 text-red-800 hover:bg-red-800 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     SHOP ALL MERCH <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
@@ -562,7 +558,7 @@
     <section id="request" class="py-16 bg-black px-6">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                REQUEST <span class="text-red-600">PARTS/VEHICLE</span>
+                REQUEST <span class="text-red-800">PARTS/VEHICLE</span>
             </h2>
             
             <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden">
@@ -574,7 +570,7 @@
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="name">
                                     Your Name
                                 </label>
-                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                        id="name" type="text" placeholder="John Doe">
                             </div>
                             
@@ -582,7 +578,7 @@
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="email">
                                     Email Address
                                 </label>
-                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                        id="email" type="email" placeholder="john@example.com">
                             </div>
                             
@@ -590,7 +586,7 @@
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="phone">
                                     Phone Number
                                 </label>
-                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                                <input class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                        id="phone" type="tel" placeholder="(123) 456-7890">
                             </div>
                             
@@ -600,11 +596,11 @@
                                 </label>
                                 <div class="flex space-x-4">
                                     <label class="inline-flex items-center">
-                                        <input type="radio" class="form-radio text-red-600 bg-gray-800" name="requestType" value="part" checked>
+                                        <input type="radio" class="form-radio text-red-800 bg-gray-800" name="requestType" value="part" checked>
                                         <span class="ml-2 text-white">Part</span>
                                     </label>
                                     <label class="inline-flex items-center">
-                                        <input type="radio" class="form-radio text-red-600 bg-gray-800" name="requestType" value="vehicle">
+                                        <input type="radio" class="form-radio text-red-800 bg-gray-800" name="requestType" value="vehicle">
                                         <span class="ml-2 text-white">Vehicle</span>
                                     </label>
                                 </div>
@@ -614,18 +610,18 @@
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="details">
                                     Details
                                 </label>
-                                <textarea class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                                <textarea class="w-full bg-gray-800 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                           id="details" rows="4" placeholder="Be as specific as possible (make, model, year, part number, condition preference, etc.)"></textarea>
                             </div>
                             
-                            <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded transition duration-300" type="submit">
+                            <button class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-4 rounded transition duration-300" type="submit">
                                 SUBMIT REQUEST
                             </button>
                         </form>
                     </div>
                     
                     <!-- Info -->
-                    <div class="bg-red-600 p-8 flex flex-col justify-center">
+                    <div class="bg-red-800 p-8 flex flex-col justify-center">
                         <div class="mb-8">
                             <h3 class="text-xl font-bold text-white mb-4">Can't Find What You Need?</h3>
                             <p class="text-white">
@@ -661,7 +657,7 @@
     <section id="contact" class="py-16 bg-gray-900 px-6">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center section-title">
-                CONTACT <span class="text-red-600">US</span>
+                CONTACT <span class="text-red-800">US</span>
             </h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -671,7 +667,7 @@
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
-                            <div class="bg-red-600 p-2 rounded-full mr-4">
+                            <div class="bg-red-800 p-2 rounded-full mr-4">
                                 <i class="fas fa-map-marker-alt text-white"></i>
                             </div>
                             <div>
@@ -681,7 +677,7 @@
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-red-600 p-2 rounded-full mr-4">
+                            <div class="bg-red-800 p-2 rounded-full mr-4">
                                 <i class="fas fa-phone-alt text-white"></i>
                             </div>
                             <div>
@@ -691,7 +687,7 @@
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-red-600 p-2 rounded-full mr-4">
+                            <div class="bg-red-800 p-2 rounded-full mr-4">
                                 <i class="fas fa-envelope text-white"></i>
                             </div>
                             <div>
@@ -701,7 +697,7 @@
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-red-600 p-2 rounded-full mr-4">
+                            <div class="bg-red-800 p-2 rounded-full mr-4">
                                 <i class="fas fa-clock text-white"></i>
                             </div>
                             <div>
@@ -745,22 +741,22 @@
                     <h3 class="text-xl font-bold text-white mb-6">Quick Message</h3>
                     <form>
                         <div class="mb-4">
-                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                    type="text" placeholder="Your Name">
                         </div>
                         <div class="mb-4">
-                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                    type="email" placeholder="Your Email">
                         </div>
                         <div class="mb-4">
-                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                            <input class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                    type="text" placeholder="Subject">
                         </div>
                         <div class="mb-6">
-                            <textarea class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-600" 
+                            <textarea class="w-full bg-gray-700 text-white rounded py-3 px-4 focus:outline-none focus:ring-2 focus:ring-red-800" 
                                       rows="4" placeholder="Your Message"></textarea>
                         </div>
-                        <button class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded transition duration-300" type="submit">
+                        <button class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-4 rounded transition duration-300" type="submit">
                             SEND MESSAGE
                         </button>
                     </form>
@@ -780,7 +776,7 @@
                         Specializing in JDM performance vehicles, rare parts, and quality repairs since 2005. Our passion for cars drives everything we do.
                     </p>
                     <div class="flex space-x-2">
-                        <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-red-800 rounded-full flex items-center justify-center">
                             <i class="fas fa-tools text-white"></i>
                         </div>
                         <div>
@@ -794,12 +790,12 @@
                 <div>
                     <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition duration-300">Services</a></li>
-                        <li><a href="#parts" class="text-gray-400 hover:text-red-600 transition duration-300">Used Parts</a></li>
-                        <li><a href="#inventory" class="text-gray-400 hover:text-red-600 transition duration-300">Used Cars</a></li>
-                        <li><a href="#merch" class="text-gray-400 hover:text-red-600 transition duration-300">Merchandise</a></li>
-                        <li><a href="#request" class="text-gray-400 hover:text-red-600 transition duration-300">Request Parts</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-red-600 transition duration-300">Contact Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-800 transition duration-300">Services</a></li>
+                        <li><a href="#parts" class="text-gray-400 hover:text-red-800 transition duration-300">Used Parts</a></li>
+                        <li><a href="#inventory" class="text-gray-400 hover:text-red-800 transition duration-300">Used Cars</a></li>
+                        <li><a href="#merch" class="text-gray-400 hover:text-red-800 transition duration-300">Merchandise</a></li>
+                        <li><a href="#request" class="text-gray-400 hover:text-red-800 transition duration-300">Request Parts</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-red-800 transition duration-300">Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -824,7 +820,7 @@
                     <h3 class="text-xl font-bold text-white mt-6 mb-4">Newsletter</h3>
                     <div class="flex">
                         <input type="email" placeholder="Your Email" class="bg-gray-800 text-white px-4 py-2 rounded-l focus:outline-none w-full">
-                        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-r">
+                        <button class="bg-red-800 hover:bg-red-900 text-white px-4 py-2 rounded-r">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
@@ -861,16 +857,16 @@
                     &copy; 2023 Guidos Garage. All Rights Reserved.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-red-600 transition duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-red-600 transition duration-300">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-red-600 transition duration-300">Sitemap</a>
+                    <a href="#" class="text-gray-400 hover:text-red-800 transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-red-800 transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-red-800 transition duration-300">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
     
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 bg-red-600 hover:bg-red-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible">
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-red-800 hover:bg-red-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
     
