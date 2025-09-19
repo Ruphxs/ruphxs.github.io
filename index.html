@@ -3,133 +3,259 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Prank Driver — GH Pages</title>
+  <title>Prank Driver — Dark Red Edition</title>
   <style>
-    :root{--accent:#ff4d6d}
-    html,body{height:100%;margin:0;background:#0b0b0e;color:#eaf;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
-    .wrap{display:flex;align-items:center;justify-content:center;height:100%}
-    .stage{width:96vw;max-width:1200px;height:72vh;min-height:380px;padding:14px;border-radius:14px;
-      background:linear-gradient(180deg,#08162a,#0b0f16);box-shadow:0 12px 40px rgba(0,0,0,.6);display:flex;gap:14px}
-    .left{flex:1;position:relative;overflow:hidden;border-radius:10px;background:
-      radial-gradient(1000px 420px at 50% 100%, rgba(255,255,255,.05), rgba(0,0,0,0))}
-    #face{position:absolute;user-select:none;pointer-events:none;filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));
-      width:min(28vw,320px);height:auto}
-
-    .controls{width:380px;max-width:40%;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
-      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px}
-    .controls h2{margin:0;font-size:18px}
-    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-    label{font-size:13px;color:#cfe}
+    :root{
+      --bg:#111214;          /* dark gray background */
+      --panel:#17181b;       /* card background */
+      --muted:#222329;       /* muted surface */
+      --text:#f3f4f6;        /* light text */
+      --sub:#c7c9d1;         /* subtle text */
+      --accent:#ff2d55;      /* red accent */
+      --accent-2:#ff5e6b;    /* lighter red */
+      --glow:0 0 22px rgba(255,45,85,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    .wrap{display:flex;align-items:center;justify-content:center;min-height:100%}
+    .stage{
+      width:min(1200px,96vw);
+      height:72vh; min-height:420px;
+      display:flex; gap:16px; padding:16px;
+      background:linear-gradient(180deg,var(--panel),#121316);
+      border:1px solid #1f2024; border-radius:16px;
+      box-shadow:0 18px 50px rgba(0,0,0,.5), var(--glow);
+      position:relative; overflow:hidden;
+    }
+    .left{
+      flex:1; position:relative; overflow:hidden; border-radius:12px;
+      background:
+        radial-gradient(900px 360px at 30% 110%, rgba(255,45,85,.12), transparent 60%),
+        radial-gradient(1200px 420px at 80% 0%, rgba(255,94,107,.10), transparent 60%),
+        linear-gradient(180deg,#0f1013,#0d0e11);
+      border:1px solid #1c1d22;
+    }
+    #face{
+      position:absolute; user-select:none; pointer-events:none;
+      filter:drop-shadow(0 14px 26px rgba(0,0,0,.65));
+      will-change:transform,left,top;
+    }
+    .controls{
+      width:390px; max-width:42%;
+      background:linear-gradient(180deg,var(--panel),var(--muted));
+      border:1px solid #22242a; border-radius:12px; padding:14px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .controls h2{margin:0 0 2px 0; font-size:18px; letter-spacing:.2px}
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    label{font-size:13px; color:var(--sub)}
     input[type=range]{width:100%}
-    button{background:var(--accent);border:0;padding:8px 12px;color:#081018;border-radius:8px;font-weight:700;cursor:pointer}
-    .muted{background:#334;color:#cfe}
-    .small{font-size:13px;padding:6px 8px;border-radius:8px;background:#072430;color:#bfe;border:0}
-    .hint{font-size:12px;color:#9ee;margin:0}
-    footer{font-size:12px;color:#7da;opacity:.9}
-    @media (max-width:860px){.stage{flex-direction:column;height:86vh}.controls{width:100%;max-width:none}}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      background:#1d1e23; border:1px solid #25262b; border-radius:999px;
+      padding:6px 10px; font-size:12px; color:var(--sub)
+    }
+    button{
+      background:var(--accent); border:0; padding:9px 12px;
+      color:#1b0f13; border-radius:10px; font-weight:800; cursor:pointer;
+      letter-spacing:.2px; box-shadow:var(--glow);
+      transition:transform .06s ease, filter .2s ease;
+    }
+    button:hover{transform:translateY(-1px)}
+    button.muted{background:#2a2b31; color:var(--sub); box-shadow:none}
+    button.small{font-size:12px; padding:7px 10px; border-radius:8px}
+    .hint{font-size:12px; color:var(--sub); margin:0}
+    .sep{height:1px; background:#23242a; border:0; margin:6px 0}
+
+    /* HUD pulse when Chaos mode is active */
+    .chaos-on{box-shadow:0 0 0 0 rgba(255,45,85,.7); animation:chaospulse 1.2s ease-out infinite}
+    @keyframes chaospulse{0%{box-shadow:0 0 0 0 rgba(255,45,85,.7)} 100%{box-shadow:0 0 0 18px rgba(255,45,85,0)}}
+
+    /* credit banner (marquee) */
+    .credit-banner{
+      position:absolute; left:0; right:0; bottom:0;
+      background:linear-gradient(90deg,#1a1b20 0%, #2a0c12 100%);
+      border-top:1px solid #2a0f15;
+      height:36px; display:flex; align-items:center; overflow:hidden;
+    }
+    .credit-track{
+      white-space:nowrap; font-weight:800; letter-spacing:.6px;
+      text-transform:uppercase; color:#fff; text-shadow:0 2px 12px rgba(255,45,85,.5);
+      animation:scroll 14s linear infinite;
+      will-change:transform;
+    }
+    .credit-track span{color:var(--accent)}
+    @keyframes scroll{
+      0%{transform:translateX(100%)}
+      100%{transform:translateX(-100%)}
+    }
+
+    /* subtle shake wrapper controlled by JS */
+    .shake{transform:translate(var(--sx,0), var(--sy,0))}
+
+    @media (max-width:860px){
+      .stage{flex-direction:column; height:86vh}
+      .controls{width:100%; max-width:none}
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="stage">
+    <div class="stage shake" id="stage">
       <div class="left" id="left">
         <img id="face" src="./1.png" alt="friend">
       </div>
 
-      <div class="controls">
-        <h2>Prank Controls</h2>
+      <div class="controls" id="panel">
+        <h2>Prank Driver</h2>
 
         <div class="row">
           <button id="playBtn">Play</button>
           <button id="driveBtn" class="muted">Start Driving</button>
           <button id="stopBtn" class="small">Stop</button>
+          <button id="honkBtn" class="small">Honk!</button>
+          <button id="chaosBtn" class="small">Chaos mode</button>
         </div>
 
-        <div>
-          <label>Bass boost</label>
-          <div class="row"><input id="bass" type="range" min="0" max="30" value="20" /> <span id="bassVal">20 dB</span></div>
+        <div class="row">
+          <div class="pill"><label>Speed</label></div>
+          <input id="speed" type="range" min="40" max="480" value="200">
+          <span class="pill" id="speedVal">200 px/s</span>
         </div>
 
-        <div>
-          <label>Distortion</label>
-          <div class="row"><input id="dist" type="range" min="0" max="100" value="35" /> <span id="distVal">35</span></div>
+        <div class="row">
+          <div class="pill"><label>Size</label></div>
+          <input id="size" type="range" min="120" max="520" value="280">
+          <span class="pill" id="sizeVal">280 px</span>
         </div>
 
-        <div>
-          <label>Master volume</label>
-          <div class="row"><input id="master" type="range" min="0" max="1" step="0.01" value="0.9" /> <span id="masterVal">0.90</span></div>
+        <div class="row">
+          <label><input id="spin" type="checkbox"> Spin while moving</label>
+          <label><input id="shake" type="checkbox" checked> Bass-reactive screen shake</label>
         </div>
 
-        <div><label><input id="megaBass" type="checkbox" checked/> Mega bass (clipping / heavy)</label></div>
+        <hr class="sep">
 
-        <p class="hint">Put this beside <code>1.png</code> and <code>1.mp3</code>. Click <b>Play</b> → <b>Start Driving</b>. If direct audio fails, it falls back automatically.</p>
-        <footer>Harmless pranks only.</footer>
+        <div class="row">
+          <div class="pill"><label>Bass boost</label></div>
+          <input id="bass" type="range" min="0" max="30" value="20" />
+          <span class="pill" id="bassVal">20 dB</span>
+        </div>
+
+        <div class="row">
+          <div class="pill"><label>Distortion</label></div>
+          <input id="dist" type="range" min="0" max="100" value="35" />
+          <span class="pill" id="distVal">35</span>
+        </div>
+
+        <div class="row">
+          <div class="pill"><label>Volume</label></div>
+          <input id="master" type="range" min="0" max="1" step="0.01" value="0.9" />
+          <span class="pill" id="masterVal">0.90</span>
+          <label class="pill"><input id="megaBass" type="checkbox" checked> Mega bass</label>
+        </div>
+
+        <p class="hint">Put this file beside <code>1.png</code> and <code>1.mp3</code>. Click <b>Play</b> → <b>Start Driving</b>. If direct audio fails, it falls back automatically.</p>
+      </div>
+
+      <!-- credit banner -->
+      <div class="credit-banner">
+        <div class="credit-track">
+          &nbsp;&nbsp;Credits: <span>Colby Niedzielski</span> • Built for laughs • Bass boosted for maximum chaos • Credits: <span>Colby Niedzielski</span> • Built for laughs • Bass boosted for maximum chaos
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Fast-path audio element (works on GH Pages). Falls back to WebAudio decode if needed. -->
+  <!-- Fast-path audio element; fallback uses WebAudio decode of the same URL -->
   <audio id="audioEl" preload="auto">
     <source src="./1.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // ---------- Elements
-    const face = document.getElementById('face');
-    const left = document.getElementById('left');
-    const playBtn = document.getElementById('playBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    const driveBtn = document.getElementById('driveBtn');
-    const audioEl = document.getElementById('audioEl');
+    // ------------- Elements
+    const stage = document.getElementById('stage');
+    const left  = document.getElementById('left');
+    const face  = document.getElementById('face');
 
-    const bass = document.getElementById('bass'), bassVal = document.getElementById('bassVal');
-    const dist = document.getElementById('dist'), distVal = document.getElementById('distVal');
-    const master = document.getElementById('master'), masterVal = document.getElementById('masterVal');
+    const playBtn  = document.getElementById('playBtn');
+    const stopBtn  = document.getElementById('stopBtn');
+    const driveBtn = document.getElementById('driveBtn');
+    const honkBtn  = document.getElementById('honkBtn');
+    const chaosBtn = document.getElementById('chaosBtn');
+
+    const speed    = document.getElementById('speed');
+    const speedVal = document.getElementById('speedVal');
+    const size     = document.getElementById('size');
+    const sizeVal  = document.getElementById('sizeVal');
+    const spin     = document.getElementById('spin');
+    const shakeTog = document.getElementById('shake');
+
+    const bass     = document.getElementById('bass'),   bassVal = document.getElementById('bassVal');
+    const dist     = document.getElementById('dist'),   distVal = document.getElementById('distVal');
+    const master   = document.getElementById('master'), masterVal = document.getElementById('masterVal');
     const megaBass = document.getElementById('megaBass');
 
-    // ---------- FX graph (shared by both paths)
-    let audioCtx, masterGain, lowShelf, shaper;
+    const audioEl  = document.getElementById('audioEl');
+
+    // ------------- Audio graph (shared)
+    let audioCtx, lowShelf, shaper, masterGain, analyser;
+    let sourceNodeEl = null;     // MediaElementSource (fast path)
+    let bufferSource = null;     // BufferSource (fallback)
+    let decodedBuffer = null;
+
     function ensureAudio(){
       if(audioCtx) return;
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      lowShelf = audioCtx.createBiquadFilter(); lowShelf.type='lowshelf'; lowShelf.frequency.value=200;
-      shaper = audioCtx.createWaveShaper(); shaper.oversample='4x';
+
+      lowShelf = audioCtx.createBiquadFilter();
+      lowShelf.type = 'lowshelf';
+      lowShelf.frequency.value = 200;
+
+      shaper = audioCtx.createWaveShaper();
+      shaper.oversample = '4x';
+
       masterGain = audioCtx.createGain();
 
-      // we’ll connect sources into lowShelf as entry point
-      lowShelf.connect(shaper); shaper.connect(masterGain); masterGain.connect(audioCtx.destination);
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 256;
+
+      // graph: [source] -> lowShelf -> shaper -> master -> analyser -> dest
+      lowShelf.connect(shaper);
+      shaper.connect(masterGain);
+      masterGain.connect(analyser);
+      analyser.connect(audioCtx.destination);
+
       applyFX();
     }
+
     function makeDistortionCurve(amount){
-      const k = amount, n = 44100, c = new Float32Array(n), deg = Math.PI/180;
-      for(let i=0;i<n;i++){ const x=(i*2)/n - 1; c[i]=(3+k)*x*20*deg/(Math.PI+k*Math.abs(x)); }
-      return c;
+      const k = amount, n = 44100, curve = new Float32Array(n), deg = Math.PI/180;
+      for(let i=0;i<n;i++){ const x=(i*2)/n - 1; curve[i]=(3+k)*x*20*deg/(Math.PI+k*Math.abs(x)); }
+      return curve;
     }
+
     function applyFX(){
       const boost = Number(bass.value) * (megaBass.checked ? 2.5 : 1);
       if(lowShelf) lowShelf.gain.value = boost;
-      if(shaper) shaper.curve = makeDistortionCurve(Number(dist.value));
+      if(shaper)   shaper.curve = makeDistortionCurve(Number(dist.value));
       if(masterGain) masterGain.gain.value = Number(master.value);
-      bassVal.textContent = bass.value + ' dB';
-      distVal.textContent = dist.value;
+
+      bassVal.textContent   = bass.value + ' dB';
+      distVal.textContent   = dist.value;
       masterVal.textContent = Number(master.value).toFixed(2);
     }
-    [bass, dist, master].forEach(el=>el.addEventListener('input', applyFX));
+    [bass, dist, master].forEach(el => el.addEventListener('input', applyFX));
     megaBass.addEventListener('change', applyFX);
 
-    // ---------- Playback paths
-    let sourceNodeEl = null;              // MediaElementSource for the fast path
-    let bufferSourceNode = null;          // BufferSource for the fallback
-    let decodedBuffer = null;
-
-    function stopAll(){
+    // ------------- Playback control (fast path then fallback)
+    function stopAudio(){
       try{ audioEl.pause(); audioEl.currentTime = 0; }catch{}
       if(sourceNodeEl){ try{ sourceNodeEl.disconnect(); }catch{} sourceNodeEl = null; }
-      if(bufferSourceNode){ try{ bufferSourceNode.stop(0); bufferSourceNode.disconnect(); }catch{} bufferSourceNode = null; }
+      if(bufferSource){ try{ bufferSource.stop(0); bufferSource.disconnect(); }catch{} bufferSource = null; }
     }
 
-    async function playFastPath(){
-      // Use <audio> element -> MediaElementSource -> FX
+    async function playFast(){
       ensureAudio();
       if(!sourceNodeEl){
         sourceNodeEl = audioCtx.createMediaElementSource(audioEl);
@@ -137,36 +263,33 @@
       }
       if(audioCtx.state === 'suspended') await audioCtx.resume();
       audioEl.loop = true;
-      await audioEl.play(); // will throw if unsupported
+      await audioEl.play(); // throws if unsupported
     }
 
     async function playFallback(){
-      // Fetch + decode 1.mp3 from the same hosted path, feed BufferSource -> FX
       ensureAudio();
       if(audioCtx.state === 'suspended') await audioCtx.resume();
       if(!decodedBuffer){
         const res = await fetch('./1.mp3', {cache:'reload'});
         if(!res.ok) throw new Error('Fetch failed: ' + res.status);
         const data = await res.arrayBuffer();
-        decodedBuffer = await new Promise((resolve, reject)=>audioCtx.decodeAudioData(data, resolve, reject));
+        decodedBuffer = await new Promise((resolve,reject)=>audioCtx.decodeAudioData(data, resolve, reject));
       }
-      bufferSourceNode = audioCtx.createBufferSource();
-      bufferSourceNode.buffer = decodedBuffer;
-      bufferSourceNode.loop = true;
-      bufferSourceNode.connect(lowShelf);
-      bufferSourceNode.start(0);
+      bufferSource = audioCtx.createBufferSource();
+      bufferSource.buffer = decodedBuffer;
+      bufferSource.loop = true;
+      bufferSource.connect(lowShelf);
+      bufferSource.start(0);
     }
 
     playBtn.addEventListener('click', async ()=>{
-      // Auto-boost before play
-      bass.value = 20; dist.value = 35; megaBass.checked = true; applyFX();
+      // set punchy defaults on play
+      bass.value = 20; dist.value = 35; megaBass.checked = true; master.value = 0.9; applyFX();
 
-      stopAll();
+      stopAudio();
       try{
-        // Try the simple path first (works fine on GH Pages with correct MIME)
-        await playFastPath();
+        await playFast();
       }catch(e){
-        // If the element refused (codec sniff/MIME edge cases), use WebAudio decode fallback
         try{
           await playFallback();
         }catch(err){
@@ -175,12 +298,69 @@
       }
     });
 
-    stopBtn.addEventListener('click', stopAll);
+    stopBtn.addEventListener('click', stopAudio);
 
-    // ---------- Bouncing movement (stays on-screen)
+    // ------------- Honk (quick sine sweep)
+    honkBtn.addEventListener('click', ()=>{
+      try{
+        ensureAudio();
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type='square';
+        o.frequency.setValueAtTime(440, audioCtx.currentTime);
+        o.frequency.exponentialRampToValueAtTime(180, audioCtx.currentTime + 0.25);
+        g.gain.setValueAtTime(0.8, audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.25);
+        o.connect(g); g.connect(lowShelf); o.start(); o.stop(audioCtx.currentTime + 0.26);
+      }catch{}
+    });
+
+    // ------------- Chaos mode (randomize direction + short FX boost)
+    let chaosTimer = null;
+    chaosBtn.addEventListener('click', ()=>{
+      chaosFlash();
+      // randomize direction strongly
+      vx = (Math.random() * 2 - 1) * (Number(speed.value) + 80);
+      vy = (Math.random() * 2 - 1) * (Number(speed.value) + 80);
+
+      // temporary FX boost
+      const prevB = Number(bass.value), prevD = Number(dist.value);
+      bass.value = Math.min(30, prevB + 8);
+      dist.value = Math.min(100, prevD + 25);
+      applyFX();
+      stage.classList.add('chaos-on');
+      if(chaosTimer) clearTimeout(chaosTimer);
+      chaosTimer = setTimeout(()=>{
+        bass.value = prevB; dist.value = prevD; applyFX();
+        stage.classList.remove('chaos-on');
+      }, 1500);
+    });
+    function chaosFlash(){
+      stage.style.boxShadow = "0 0 0 0 rgba(255,45,85,.8), "+getComputedStyle(stage).boxShadow;
+      setTimeout(()=>{ stage.style.boxShadow=''; }, 120);
+    }
+
+    // ------------- Movement / bounce (on-screen), spin, and shake
     let driving=false, rafId=null;
-    let x=40, y=40, vx=180, vy=120; // px/s
-    let lastT=null;
+    let x=40, y=40, vx=200, vy=140; // px/s initial
+    let lastT=null, rot=0;
+
+    function setFaceSize(px){
+      face.style.width = px + 'px';
+      // keep inside after size change
+      clampToBounds();
+    }
+    size.addEventListener('input', ()=>{
+      sizeVal.textContent = size.value + ' px';
+      setFaceSize(Number(size.value));
+    });
+    speed.addEventListener('input', ()=>{
+      speedVal.textContent = speed.value + ' px/s';
+      const sp = Number(speed.value);
+      vx = Math.sign(vx || 1) * sp;
+      vy = Math.sign(vy || 1) * (sp * 0.7);
+    });
+
     function clampToBounds(){
       const box = left.getBoundingClientRect();
       const fw = face.offsetWidth, fh = face.offsetHeight;
@@ -189,6 +369,7 @@
       face.style.left = x + 'px';
       face.style.top  = y + 'px';
     }
+
     function animate(t){
       if(!driving){ lastT=null; return; }
       if(lastT==null) lastT=t;
@@ -199,32 +380,74 @@
       const fw = face.offsetWidth, fh = face.offsetHeight;
 
       x += vx * dt; y += vy * dt;
-      const m = 8;
+
+      const m = 8; // margin
       if(x <= m){ x = m; vx = Math.abs(vx); }
       if(y <= m){ y = m; vy = Math.abs(vy); }
       if(x + fw + m >= box.width){ x = box.width - fw - m; vx = -Math.abs(vx); }
       if(y + fh + m >= box.height){ y = box.height - fh - m; vy = -Math.abs(vy); }
 
+      // spin (optional)
+      if(spin.checked){
+        rot = (rot + 120 * dt) % 360;
+        face.style.transform = `rotate(${rot}deg)`;
+      }else{
+        if(rot !== 0){ rot = 0; face.style.transform = 'none'; }
+      }
+
       face.style.left = x + 'px';
       face.style.top  = y + 'px';
 
+      // bass-reactive screen shake
+      if(shakeTog.checked && analyser){
+        const bins = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(bins);
+        // average of lowest ~8 bins (~<= ~350 Hz at fftSize 256, sampleRate 44100)
+        let sum=0, n=8; for(let i=0;i<n;i++) sum += bins[i] || 0;
+        const lvl = sum / (n * 255); // 0..1
+        const intensity = Math.min(1, lvl * 2.8); // exaggerate
+        const sx = (Math.random() * 2 - 1) * intensity * 6;
+        const sy = (Math.random() * 2 - 1) * intensity * 6;
+        stage.style.setProperty('--sx', shakeTog.checked ? (sx.toFixed(2)+'px') : '0px');
+        stage.style.setProperty('--sy', shakeTog.checked ? (sy.toFixed(2)+'px') : '0px');
+      }else{
+        stage.style.setProperty('--sx','0px'); stage.style.setProperty('--sy','0px');
+      }
+
       rafId = requestAnimationFrame(animate);
     }
+
     function startDriving(){
       if(driving) return;
       driving = true; lastT = null; rafId = requestAnimationFrame(animate);
-      driveBtn.textContent = 'Stop Driving'; driveBtn.classList.remove('muted'); driveBtn.style.background = '#34d';
+      driveBtn.textContent = 'Stop Driving';
+      driveBtn.classList.remove('muted');
     }
     function stopDriving(){
       driving = false; if(rafId) cancelAnimationFrame(rafId);
-      driveBtn.textContent = 'Start Driving'; driveBtn.classList.add('muted'); driveBtn.style.background = '';
+      driveBtn.textContent = 'Start Driving';
+      driveBtn.classList.add('muted');
+      stage.style.setProperty('--sx','0px'); stage.style.setProperty('--sy','0px');
     }
     driveBtn.addEventListener('click', ()=> driving ? stopDriving() : startDriving());
 
-    function initPosition(){ x = 24; y = Math.max(10, left.clientHeight * 0.35); clampToBounds(); }
+    // ------------- Init placement / defaults
+    function initPosition(){
+      x = 24; y = Math.max(10, left.clientHeight * 0.35);
+      setFaceSize(Number(size.value));
+      clampToBounds();
+      speedVal.textContent = speed.value + ' px/s';
+      sizeVal.textContent  = size.value  + ' px';
+    }
     face.addEventListener('load', initPosition);
     window.addEventListener('resize', clampToBounds);
     if(face.complete) initPosition();
+
+    // Defensive: catch unhandled promise rejections from audio play on strict browsers
+    window.addEventListener('unhandledrejection', e=>{
+      console.warn('Unhandled promise rejection:', e.reason);
+    });
   </script>
 </body>
 </html>
+
