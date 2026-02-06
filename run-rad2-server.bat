@@ -38,7 +38,7 @@ if /i "%AUTO_ACCEPT_EULA%"=="true" (
 )
 
 set "START_SCRIPT="
-for %%F in (start.bat Start.bat ServerStart.bat run.bat launch.bat) do (
+for %%F in (LaunchServer.bat launchserver.bat start.bat Start.bat ServerStart.bat run.bat launch.bat) do (
   if exist "%%~F" set "START_SCRIPT=%%~F"
 )
 

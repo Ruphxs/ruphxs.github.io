@@ -60,6 +60,11 @@ For LAN-only play, no port forwarding is needed.
 - On same LAN: use server PC local IP (example `192.168.1.50`).
 - Over internet: use your public IP/domain.
 
+
+### Your current folder layout looks correct
+If your server folder looks like this (contains `mods`, `config`, `forge-1.16.5-*.jar`, and especially `LaunchServer.bat`), you are set.
+The launcher will now detect and run `LaunchServer.bat` automatically before trying direct JAR launch.
+
 ## Script settings you can change
 Inside `run-rad2-server.bat`:
 
